@@ -8,9 +8,10 @@ import java.util.List;
 public class BookManager {
     private final txtFileManager fileManager;
 
-    public BookManager() {
-        this.fileManager = new txtFileManager();
-    }
+       public BookManager() {
+       this.fileManager = new txtFileManager("books.txt");
+       fileManager.createFile();
+   }
 
     public void insert(Book book) {
         try {
