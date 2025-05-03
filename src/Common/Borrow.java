@@ -1,20 +1,20 @@
 package common;
 
 public class Borrow {
-    private Long id; // کلید اصلی
-    private Long bookId;
-    private Long memberId;
-    private String borrowDate;
-    private String returnDate;
-    private String actualReturnDate;
-    private boolean isReturned;
-    private boolean isRenewed;
+    private Long id; // شناسه منحصر به فرد برای هر امانت
+    private Long bookId; // شناسه کتابی که امانت گرفته شده است
+    private Long memberId; // شناسه عضوی که کتاب را امانت گرفته است
+    private String borrowDate; // تاریخ امانت گرفتن کتاب
+    private String returnDate; // تاریخ موعد بازگشت کتاب
+    private String actualReturnDate; // تاریخ بازگشت واقعی کتاب (اگر برگردانده شده باشد)
+    private boolean isReturned; // وضعیت بازگشت کتاب (آیا کتاب بازگشته یا خیر)
+    private boolean isRenewed; // وضعیت تمدید (آیا مدت زمان امانت تمدید شده است یا خیر)
 
-    // سازنده پیش‌فرض
+    // سازنده پیش‌فرض که به طور خودکار ایجاد می‌شود
     public Borrow() {
     }
 
-    // سازنده با پارامتر
+    // سازنده با پارامتر که تمامی ویژگی‌ها را مقداردهی می‌کند
     public Borrow(Long id, Long bookId, Long memberId, String borrowDate, 
                  String returnDate, String actualReturnDate, boolean isReturned, boolean isRenewed) {
         this.id = id;
@@ -27,7 +27,8 @@ public class Borrow {
         this.isRenewed = isRenewed;
     }
 
-    // Getter و Setter ها
+    // Getter و Setter ها برای دسترسی و تغییر مقادیر فیلدهای کلاس
+
     public Long getId() {
         return id;
     }
@@ -107,6 +108,7 @@ public class Borrow {
         isRenewed = renewed;
     }
 
+    // متد toString برای نمایش اطلاعات امانت در قالبی قابل فهم
     @Override
     public String toString() {
         return String.format("امانت:%nشناسه: %d%nکتاب: %d%nعضو: %d%nتاریخ امانت: %s%nموعد بازگشت: %s%n" +
@@ -116,4 +118,4 @@ public class Borrow {
                 isReturned ? "بازگشت شده" : "برنگشته",
                 isRenewed ? "تمدید شده" : "تمدید نشده");
     }
-} 
+}
